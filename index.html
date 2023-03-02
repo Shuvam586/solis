@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="./script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div class="swiper mySwiper">
+
+        <div class="swiper-wrapper screen-wrapper">
+        
+            <div class="screen swiper-slide screen-1" style="height: 100vh; width: 100vw;">
+                <div class="screen-background screen-background-1">
+                    <img id="gadha" src="./assets/beta.svg" alt="">
+                </div>
+                <div class="screen-content">
+                    <div class="pack-1">
+                        <div class="pack-1-time">06:09</div>
+                        <div class="pack-1-date">Wednesday, 14 Mar 2023</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="screen swiper-slide screen-2" style="height: 100vh; width: 100vw;">
+                <div class="screen-background">
+                    <img src="./assets/alpha.svg" alt="">
+                </div>
+                <div class="screen-content"></div>
+            </div>
+        
+            <div class="screen swiper-slide screen-3" style="height: 100vh; width: 100vw;">
+                <div class="screen-background">
+                    <img src="./assets/charlie.svg" alt="">
+                </div>
+                <div class="screen-content"></div>
+            </div>
+        
+            <div class="screen swiper-slide screen-4" style="height: 100vh; width: 100vw;">
+                <div class="screen-background">
+                    <img src="./assets/delta.svg" alt="">
+                </div>
+                <div class="screen-content"></div>
+            </div>
+        
+        </div>
+    
+    </div>
+
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {});
+    </script>
+
+</body>
+
+</html>
