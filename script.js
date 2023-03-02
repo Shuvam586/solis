@@ -6,7 +6,6 @@ alignDivs = () => {
         for (let i = 0; i < imageDivs.length; i++) {
 
             imageDivs[i].style.transform = 'translateY(-' + String(lmao) + 'px)';
-            console.log(imageDivs[i])
         }
     }
 
@@ -18,6 +17,9 @@ alignDivs = () => {
 
     authorJinish = document.querySelector('.pack-4');
     authorJinish.style.bottom = String((window.innerHeight - 550) / 2 + 10) + 'px';
+
+    footerJinish = document.querySelector('.footer');
+    footerJinish.style.bottom = String((window.innerHeight - 550) / 2 + 10) + 'px';
 }
 
 updateTime = () => {
@@ -40,6 +42,9 @@ puttingInfo = () => {
     var city = "Kolkata"
     var lat = 22.5726;
     var lon = 88.3639;
+    weatherDes = document.querySelector('.pack-2-weather');
+    actualTemp = document.querySelector('.actual-temp');
+    weatherText = document.querySelector('.a-5-text');
 
     // getting location 
     url1 = "http://worldtimeapi.org/api/ip";
@@ -47,7 +52,6 @@ puttingInfo = () => {
         return response.json();
     }).then(data => {
         city = data.timezone.split("/")[1];
-        console.log(city);
     })
 
     url2 = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${openWeatherKey}`;
@@ -58,13 +62,40 @@ puttingInfo = () => {
         lon = data[0].lon;
     })
 
-    url3 = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherKey}}`
-    // fetch(`${url3}`).then(response => {
-    //     return response.json();
-    // }).then(data => {
-    //     // console.log(data);
-    //     // kaaj korche navigator, pore dekhchi
-    // })
+
+    const optionas = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'edad73df64msh41d1a22add27a66p166a78jsn6f3b61ba2379',
+            'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+        }
+    };
+
+    fetch(`https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?lat=${lat}&lon=${lon}`, optionas)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+
+            humidText = ""
+            if (data.humidity > 90) {
+                humidText = "It's <b>really humid</b> here"
+            } else if (data.humidity > 70) {
+                humidText = "It's <b>humid</b> here"
+            } else if (data.humidity > 50) {
+                humidText = "It's <b>somewhat fresh</b> here"
+            } else if (data.humidity > 30) {
+                humidText = "It's <b>a bit dry</b> here"
+            } else {
+                humidText = "It's <b>really dry</b> here"
+            }
+
+            feelsLikeText = `Feels like <b>${data.feels_like}</b>°C.`
+
+            weatherText.innerHTML = `${humidText}. ${feelsLikeText}`
+            weatherDes.innerHTML = `It's about <b>${data.temp}°C</b> here`
+            actualTemp.innerText = String(data.temp)
+        })
+        .catch(err => console.error(err));
 }
 
 showerThoughts = () => {
@@ -83,6 +114,7 @@ showerThoughts = () => {
     fetch('https://stapi-showerthoughts.p.rapidapi.com/api/v1/stapi/top', options)
         .then(response => response.json())
         .then(data => {
+            console.log('shower thought are working')
             thoughtDiv.innerText = data.data[0].showerthought;
             authorDiv.innerText = data.data[0].user;
             authorLink.href = `https://www.reddit.com/user/${data.data[0].user.slice(2)}`
