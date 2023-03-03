@@ -1,27 +1,3 @@
-// alignDivs = () => {
-//     lmao = (800 - window.innerHeight) / 4;
-//     imageDivs = document.getElementsByClassName('bg-image');
-
-//     if (window.innerHeight < 800) {
-//         for (let i = 0; i < imageDivs.length; i++) {
-
-//             imageDivs[i].style.transform = 'translateY(-' + String(lmao) + 'px)';
-//         }
-//     }
-
-//     bottomJinish = document.querySelector('.pack-2');
-//     bottomJinish.style.bottom = String((window.innerHeight - 600) / 2 + 10) + 'px';
-
-//     thoughtJinish = document.querySelector('.pack-3');
-//     thoughtJinish.style.paddingTop = String((300 - thoughtJinish.offsetHeight) / 2) + 'px';
-
-//     authorJinish = document.querySelector('.pack-4');
-//     authorJinish.style.bottom = String((window.innerHeight - 550) / 2 + 10) + 'px';
-
-//     footerJinish = document.querySelector('.footer');
-//     footerJinish.style.bottom = String((window.innerHeight - 550) / 2 + 10) + 'px';
-// }
-
 updateTime = () => {
     var d = new Date();
     days = { 0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday" }
@@ -43,11 +19,9 @@ puttingInfo = () => {
     var lat = 22.5726;
     var lon = 88.3639;
     weatherDes = document.querySelector('.pack-2-weather');
-    actualTemp = document.querySelector('.actual-temp');
-    weatherText = document.querySelector('.a-5-text');
 
     // getting location 
-    url1 = "http://worldtimeapi.org/api/ip";
+    url1 = "https://worldtimeapi.org/api/ip";
     fetch(`${url1}`).then(response => {
         return response.json();
     }).then(data => {
@@ -91,9 +65,7 @@ puttingInfo = () => {
 
             feelsLikeText = `Feels like <b>${data.feels_like}</b>°C.`
 
-            weatherText.innerHTML = `${humidText}. ${feelsLikeText}`
-            weatherDes.innerHTML = `It's about <b>${data.temp}°C</b> here`
-            actualTemp.innerText = String(data.temp)
+            weatherDes.innerHTML = `${humidText}. It's about <b>${data.temp}°C</b> here. ${feelsLikeText}`
         })
         .catch(err => console.error(err));
 }
@@ -101,7 +73,6 @@ puttingInfo = () => {
 showerThoughts = () => {
     thoughtDiv = document.querySelector('.pack-3-thought')
     authorDiv = document.querySelector('.pack-4-thought-author')
-    authorLink = document.querySelector('.author-link')
 
     const options = {
         method: 'GET',
@@ -116,8 +87,7 @@ showerThoughts = () => {
         .then(data => {
             console.log('shower thought are working')
             thoughtDiv.innerText = data.data[0].showerthought;
-            authorDiv.innerText = data.data[0].user;
-            authorLink.href = `https://www.reddit.com/user/${data.data[0].user.slice(2)}`
+            authorDiv.innerHTML = `<a href="https://www.reddit.com/user/${data.data[0].user.slice(2)}" target="_blank">${data.data[0].user}</a>`;
         }).catch(err => console.error(err));
 }
 
