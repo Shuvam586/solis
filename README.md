@@ -1,5 +1,5 @@
 <div>
-    <img src="./assets/readme.png" alt="solis">
+    <img style="margin-inline:auto;" src="./assets/readme.png" alt="solis">
 </div>
 <br>
 <h2>About solis</h2>
