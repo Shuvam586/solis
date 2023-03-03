@@ -26,6 +26,7 @@ puttingInfo = () => {
         return response.json();
     }).then(data => {
         city = data.timezone.split("/")[1];
+        country = data.timezone.split("/")[0];
     })
 
     url2 = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${openWeatherKey}`;
@@ -65,7 +66,7 @@ puttingInfo = () => {
 
             feelsLikeText = `Feels like <b>${data.feels_like}</b>°C.`
 
-            weatherDes.innerHTML = `${humidText}. It's about <b>${data.temp}°C</b> here. ${feelsLikeText}`
+            weatherDes.innerHTML = `${humidText} in ${city}, ${country}. It's about <b>${data.temp}°C</b> here. ${feelsLikeText}`
         })
         .catch(err => console.error(err));
 }
