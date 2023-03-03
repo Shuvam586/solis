@@ -8,5 +8,5 @@
 <h2>Usage</h2>
 <p>To get started, download the app or visit <a href="https://shuvam586.github.io/solis/" target="_blank">shuvam586.github.io/solis/</a></p>
 <ul>
-    <li><a href="./src/solis.apk" download>Android</a></li>
+    <li><a href="https://raw.githubusercontent.com/Shuvam586/solis/main/src/solis.apk" download>Android</a></li>
 </ul>
