@@ -1,26 +1,26 @@
-alignDivs = () => {
-    lmao = (800 - window.innerHeight) / 4;
-    imageDivs = document.getElementsByClassName('bg-image');
+// alignDivs = () => {
+//     lmao = (800 - window.innerHeight) / 4;
+//     imageDivs = document.getElementsByClassName('bg-image');
 
-    if (window.innerHeight < 800) {
-        for (let i = 0; i < imageDivs.length; i++) {
+//     if (window.innerHeight < 800) {
+//         for (let i = 0; i < imageDivs.length; i++) {
 
-            imageDivs[i].style.transform = 'translateY(-' + String(lmao) + 'px)';
-        }
-    }
+//             imageDivs[i].style.transform = 'translateY(-' + String(lmao) + 'px)';
+//         }
+//     }
 
-    bottomJinish = document.querySelector('.pack-2');
-    bottomJinish.style.bottom = String((window.innerHeight - 600) / 2 + 10) + 'px';
+//     bottomJinish = document.querySelector('.pack-2');
+//     bottomJinish.style.bottom = String((window.innerHeight - 600) / 2 + 10) + 'px';
 
-    thoughtJinish = document.querySelector('.pack-3');
-    thoughtJinish.style.paddingTop = String((300 - thoughtJinish.offsetHeight) / 2) + 'px';
+//     thoughtJinish = document.querySelector('.pack-3');
+//     thoughtJinish.style.paddingTop = String((300 - thoughtJinish.offsetHeight) / 2) + 'px';
 
-    authorJinish = document.querySelector('.pack-4');
-    authorJinish.style.bottom = String((window.innerHeight - 550) / 2 + 10) + 'px';
+//     authorJinish = document.querySelector('.pack-4');
+//     authorJinish.style.bottom = String((window.innerHeight - 550) / 2 + 10) + 'px';
 
-    footerJinish = document.querySelector('.footer');
-    footerJinish.style.bottom = String((window.innerHeight - 550) / 2 + 10) + 'px';
-}
+//     footerJinish = document.querySelector('.footer');
+//     footerJinish.style.bottom = String((window.innerHeight - 550) / 2 + 10) + 'px';
+// }
 
 updateTime = () => {
     var d = new Date();
@@ -121,7 +121,6 @@ showerThoughts = () => {
         }).catch(err => console.error(err));
 }
 
-alignDivs();
 puttingInfo();
 showerThoughts();
 
