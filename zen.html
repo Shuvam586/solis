@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@500&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #1f1f1f;
+            font-family: 'Chivo Mono', monospace;
+            color: #f1f1f1;
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+        }
+
+        .time-info {
+            width: fit-content;
+            height: fit-content;
+            rotate: 90deg;
+            transform: scale(1.75);
+            font-size: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="time-info">
+        <span class="time-span">hello</span>
+    </div>
+
+    <script>
+        updateTime = () => {
+            var d = new Date();
+            numbers = { 0: "00", 1: "01", 2: "02", 3: "03", 4: "04", 5: "05", 6: "06", 7: "07", 8: "08", 9: "09", 10: "10", 11: "11", 12: "12", 13: "13", 14: "14", 15: "15", 16: "16", 17: "17", 18: "18", 19: "19", 20: "20", 21: "21", 22: "22", 23: "23", 24: "24", 25: "25", 26: "26", 27: "27", 28: "28", 29: "29", 30: "30", 31: "31", 32: "32", 33: "33", 34: "34", 35: "35", 36: "36", 37: "37", 38: "38", 39: "39", 40: "40", 41: "41", 42: "42", 43: "43", 44: "44", 45: "45", 46: "46", 47: "47", 48: "48", 49: "49", 50: "50", 51: "51", 52: "52", 53: "53", 54: "54", 55: "55", 56: "56", 57: "57", 58: "58", 59: "59" }
+
+            timeInfo = document.querySelector(".time-span");
+            timeInfo.innerText = `${numbers[d.getHours()]}:${numbers[d.getMinutes()]}`;
+        }
+
+        updateTime();
+
+        setInterval(updateTime, 500)
+    </script>
+
+</body>
+
+</html>
